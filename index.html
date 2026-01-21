@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年度課程組第二次會議 (Version 1.0)</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* 專業深藍 */
+            --accent-color: #e67e22; /* 活力橙 (代表創意/5C) */
+            --bg-color: #ecf0f1;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow: hidden; /* 防止滾動 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 幻燈片容器 */
+        .slide-container {
+            width: 90%;
+            max-width: 1024px;
+            aspect-ratio: 16 / 9;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 每一張幻燈片 */
+        .slide {
+            display: none; /* 預設隱藏 */
+            flex: 1;
+            padding: 40px 60px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .slide.active {
+            display: flex; /* 顯示當前頁 */
+        }
+
+        /* 內容樣式 - 可編輯區域 */
+        [contenteditable="true"] {
+            outline: none;
+            border: 1px dashed transparent;
+        }
+        [contenteditable="true"]:hover {
+            border-bottom: 1px dashed #ccc; /* 提示可編輯 */
+        }
+        [contenteditable="true"]:focus {
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 0.5em;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 0.5em;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #555;
+            margin-top: 0;
+        }
+
+        ul {
+            font-size: 1.4em;
+            line-height: 1.6;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        .meta-info {
+            font-size: 1.2em;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        /* 封面頁特別樣式 */
+        .slide.cover {
+            text-align: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .slide.cover h1 {
+            border-bottom: none;
+            font-size: 3.5em;
+        }
+
+        /* 控制按鈕 */
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1em;
+            color: #999;
+        }
+
+        /* 動畫 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-container" id="slideDeck">
+
+    <div class="slide cover active">
+        <h3 contenteditable="true">香海正覺蓮社佛教正覺蓮社學校</h3>
+        <h1 contenteditable="true">二零二五年度<br>課程組第二次會議</h1>
+        <div class="meta-info" contenteditable="true">
+            <p>日期：21-1-2026 (三)</p>
+            <p>時間：15:30 – 16:15</p>
+            <p>地點：禮堂</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2>(一) 通過上次會議紀錄</h2>
+        <ul contenteditable="true">
+            <li>請省覽上次會議紀錄（附件一）。</li>
+            <li>跟進事項匯報。</li>
+            <li>動議通過 / 修訂。</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>(二) 報告事項：學與教回饋</h2>
+        <h3 contenteditable="true">上評成績及家課調適</h3>
+        <ul contenteditable="true">
+            <li><strong>成績數據分析：</strong>
+                <ul>
+                    <li>各級表現概覽與強弱項分析。</li>
+                    <li>學生成績追蹤 (SEN / 底層支援)。</li>
+                </ul>
+            </li>
+            <li><strong>家課政策檢討：</strong>
+                <ul>
+                    <li>重質不重量：優化家課設計。</li>
+                    <li>拔尖補底：針對性調適策略。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>(二) 報告事項：跨學科活動</h2>
+        <h3 contenteditable="true">課程統整周 (1月19-22日)</h3>
+        <ul contenteditable="true">
+            <li><strong>主題概覽：</strong>
+                <ul>
+                    <li>小一：<span class="highlight">自理力</span> (遊戲式學習)</li>
+                    <li>小二：<span class="highlight">我們的社區</span> (關愛共融)</li>
+                    <li>小三：<span class="highlight">旅遊樂趣多</span> (文化視野)</li>
+                </ul>
+            </li>
+            <li><strong>設計重點：</strong>結合 5C+ 元素及多元評估。</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>(二) 報告事項：學校課程發展</h2>
+        <h3 contenteditable="true">價值教育、5C+、Future Ready Skills</h3>
+        <ul contenteditable="true">
+            <li><strong>核心價值：</strong>教育局 12 個首要價值觀 + 同理心。</li>
+            <li><strong>5C+ 素養：</strong>
+                <br>溝通、貢獻、創意、批判性思考、協作。
+            </li>
+            <li><strong>未來技能 (AGILE)：</strong>
+                <ul>
+                    <li>數位能力 (AI、大數據)</li>
+                    <li>適應力與軟實力</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>(三) 教師專業分享</h2>
+        <ul contenteditable="true">
+            <li><strong>1. 晉升教師內地學習團</strong>
+                <ul>
+                    <li>內地教育最新發展分享。</li>
+                    <li>跨學科協作的啟示。</li>
+                </ul>
+            </li>
+            <li><strong>2. 校內 AI 運用 - 經驗分享</strong>
+                <ul>
+                    <li>AI 工具在教學與行政的實務應用。</li>
+                    <li>減負增效案例展示。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>(四) 討論事項</h2>
+        <ul contenteditable="true">
+            <li><strong>1. 校運會檢討</strong>
+                <ul>
+                    <li>流程與物流安排。</li>
+                    <li>學生參與度與安全措施。</li>
+                </ul>
+            </li>
+            <li><strong>2. 校內共備會議 - 成績分析檢討</strong>
+                <ul>
+                    <li>如何善用數據回饋教學？</li>
+                    <li>共備時間的優化運用。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>(五) 臨時動議 & (六) 散會</h2>
+        <ul contenteditable="true">
+            <li><strong>臨時動議 (A.O.B)</strong></li>
+            <li><strong>散會</strong>
+                <br><br>
+                校長簽署：__________________<br>
+                日期：__________________
+            </li>
+        </ul>
+    </div>
+
+    <div class="controls">
+        <button onclick="changeSlide(-1)">❮ 上一頁</button>
+        <button onclick="changeSlide(1)">下一頁 ❯</button>
+    </div>
+    <div class="page-number" id="pageNumber">1 / 8</div>
+
+</div>
+
+<script>
+    // Version 1.0 JavaScript Logic
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const pageNumberDisplay = document.getElementById('pageNumber');
+
+    function showSlide(index) {
+        // 循環邏輯
+        if (index >= slides.length) currentSlide = 0;
+        else if (index < 0) currentSlide = slides.length - 1;
+        else currentSlide = index;
+
+        // 隱藏所有，顯示當前
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[currentSlide].classList.add('active');
+
+        // 更新頁碼
+        pageNumberDisplay.textContent = `${currentSlide + 1} / ${slides.length}`;
+    }
+
+    function changeSlide(direction) {
+        showSlide(currentSlide + direction);
+    }
+
+    // 鍵盤控制
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowRight' || event.key === ' ') {
+            changeSlide(1);
+        } else if (event.key === 'ArrowLeft') {
+            changeSlide(-1);
+        }
+    });
+
+    // 初始化
+    showSlide(0);
+</script>
+
+</body>
+</html>
